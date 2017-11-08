@@ -1,0 +1,24 @@
+planning
+
+dir : today(yyyymmddhhmmtabno.txt, yyyymmdd.txt) , today/currentbills(tabno.txt)
+dir : record(yyyymm.txt)
+
+current record
+tabno.txt---------------------
+no:item:unitprice:count:amount
+------------------------------
+
+today's cleared record
+yyyymmddhhmmsstabno.txt-------
+no:item:unitprice:count:amount
+------------------------------
+
+today's total record
+yyyymmdd.txt--------------------------------------------
+yyyymmddhhmm:tabno:amount:sc:gt:(item:count repeating)
+--------------------------------------------------------
+
+record
+yyyymm.txt--------------------------------------------
+yyyymmdd:amount:sc:gt:(item:count repeating)
+------------------------------------------------------

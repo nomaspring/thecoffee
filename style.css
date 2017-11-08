@@ -1,0 +1,27 @@
+body{
+    margin:10;
+}
+header{
+    border-bottom: 1px solid grey;
+    padding-left: 20px;
+    margin-bottom: 10px;
+}
+#content {
+    padding-left:20px;
+    width:400px;
+}
+footer {
+    margin:10;
+    border-top: 1px solid grey;
+    text-align: center;
+}
+.btn {
+    border: none; /* Remove borders */
+    background: #ddd;
+    padding: 50px 28px; /* Add some padding */
+    cursor: pointer; /* Add a pointer cursor on mouse-over */
+}
+.btn:hover {
+    background: #0b7dda;
+    color: white; /* Add a text color */
+}

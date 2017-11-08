@@ -1,0 +1,28 @@
+//making and writing file with javascript
+
+    function createfile(){
+		var txt = <?php echo json_encode($ordertext); ?>;
+		var ctab = <?php echo json_encode("record/".$_POST['tabno'].".txt"); ?>;
+		var fileObject = new ActiveXObject("Scripting.FileSystemObject");
+		fWrite = fleObject.CreateTextFile(ctab,true);
+		fWrite.write(txt);
+		fWrite.close();
+    }
+
+
+//making and writing file with php
+
+	<?php
+		$newfile = "record/".$_POST['tabno'].".txt";
+		$openorder = fopen($newfile, "wb");
+		fwrite($openorder, $ordertext);
+		fclose($openorder);
+	?>
+
+
+//adjusting fucking nepali time with php
+
+	<?php
+		$nepaltime=mktime()+(3600*14-(60*15));
+		$disptime = date('YmdHi', $nepaltime);
+	?>

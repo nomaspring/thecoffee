@@ -1,0 +1,112 @@
+category	item	price
+1	espresso	150
+1	doppio	200
+1	americano	150
+1	americano iced	180
+1	cappuccino	200
+1	cappuccino iced	230
+1	caffe latte	200
+1	caffe latte iced	230
+1	caffe mocha	250
+1	caffe mocha iced	280
+1	caramel latte	250
+1	caramel latte iced	280
+1	vanilla latte	250
+1	vanilla latte iced	280
+1	honey latte	250
+1	honey latte iced	280
+1	espresso machiatto	200
+1	caramel machiatto	250
+1	affogato	250
+1	additive shot	60
+2	green tea	160
+2	ilam	160
+2	darjeeling	160
+2	herbal tea	160
+2	jasmine	160
+2	earl grey	120
+2	lemon tea	140
+2	lemon tea iced	170
+2	honey lemon tea	180
+2	honey lemon tea iced	210
+2	tea latte	200
+2	iced lemon	150
+2	hot chocolate	220
+3	mocha smoothie	250
+3	caramel smoothie	250
+3	banana smoothie	250
+3	yogurt smoothie	250
+3	lemon smoothie	250
+3	season fruit smoothie	250
+3	mango kakigo-ri	250
+4	plain lassi	140
+4	banana lassi	190
+4	chocolate lassi	190
+4	honey lassi	190
+4	season fruit lassi	190
+5	coke	90
+5	sprite	90
+5	soda	90
+5	lemon soda	130
+5	mineral water 1000	70
+5	mineral water 500	40
+5	fresh fruit juice	220
+6	everest beer	360
+6	gorkha	400
+6	tuborg beer	400
+6	carlsberg	430
+6	san miguel	360
+7	red wine glass	600
+7	red wine bottle	2200
+7	white wine glass	600
+7	white wine bottle	2200
+8	signature double (pack)	400
+8	signature quarter	1100
+8	signature half	2000
+8	signature bottle	3600
+8	jw red double (pack)	600
+8	jw red quarter	1700
+8	jw red half	3100
+8	jw red bottle	6000
+8	jw black double (pack)	700
+8	jw black quarter	1900
+8	jw black half	3600
+8	jw black bottle	7000
+8	shochu 180ml	1500
+8	shochu 360ml	2500
+9	omlet set	250
+9	masala omlet set	280
+9	mushroom omlet set	300
+9	cheese omlet set	330
+9	sausage & omlet set	330
+9	extra bread	40
+9	extra butter	30
+9	extra jam	30
+9	ramen	350
+9	miso pasta	400
+9	cold spaghetti	400
+9	bibim guksu	400
+9	fried sausages	400
+10	gateau chocolat	220
+10	baked cheese cake	230
+10	lemon tart	280
+10	cream puff custard	130
+10	cream puff chocolate	150
+10	ganache chocolate cake	250
+10	peach yogurt mousse cake	280
+10	rare cheese cake	230
+10	coffee roll cake	250
+10	fruits roll cake	280
+10	banana roll cake	280
+10	mango mousse cake	280
+10	coffee mousse	250
+10	tiramisu	220
+10	orange soufflé	220
+10	ice cream single	170
+10	ice cream double	300
+11	beans 250g	800
+11	green beans 1kg	2000
+11	post card 10 sheets set	400
+11	local honey	2500
+11	marlboro	350
+11	marlboro pc	20

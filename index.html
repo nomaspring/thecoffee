@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>cafe The Coffee Order Management System</title>
+    <link rel="stylesheet" href="style.css" media="screen" title="no title" charset="utf-8">
+    <style>
+      .btn {
+          border: none; /* Remove borders */
+          background: #ddd;
+          padding: 50px 28px; /* Add some padding */
+          cursor: pointer; /* Add a pointer cursor on mouse-over */
+      }
+      .btn:hover {
+        background: #0b7dda;
+        color: white; /* Add a text color */
+      }
+    </style>
+  </head>
+
+  <body id="body">
+  
+    <header>
+        <h2><a href="index.html">Order Management System</a></h2>
+    </header>
+
+    <section>
+      <button class="btn new" onclick="location.href='choosenew.php'">New Order</button>
+      <button class="btn edit" onclick="location.href='chooseedit.php'">Add/Edit</button>
+      <button class="btn bill" onclick="location.href='chooseclear.php'">Bill Clear</button>
+    </section>
+  </body>
+  <footer>
+    <a href="http://www.facebook.com/thecoffeenepal">www.facebook.com/thecoffeenepal</a>
+  </footer>
+</html>

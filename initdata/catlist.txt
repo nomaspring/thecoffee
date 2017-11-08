@@ -1,0 +1,11 @@
+<option value="1">organic coffee</option>
+<option value="2">organic tea</option>
+<option value="3">smoothie</option>
+<option value="4">lassi</option>
+<option value="5">cold drink</option>
+<option value="6">beer</option>
+<option value="7">wine</option>
+<option value="8">whiskey</option>
+<option value="9">food</option>
+<option value="10">cake</option>
+<option value="11">souvenir</option>
