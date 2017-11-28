@@ -1,0 +1,23 @@
+when install on another pc, change file path on ;
+	showtableno.php
+	saveonfile.php
+	saveonfileforedit.php
+	saveonfileforclear.php
+	orderrecall.php
+	orderrecallforclear.php
+	processforclear.php
+	recordintototalbill.php
+	recordintototalorder.php
+	inquiry/todayssales.php
+	inquiry/showbilldetail.php
+	inquiry/dailysalesupdate.php
+	inquiry/showtodaysbills.php
+	inquiry/showtodaysorders.php
+	inquiry/deepinquiry/showdailysales.php
+
+
+
+	for inquiring ;
+		allow only todayssales and shobilldetails
+		
+		remove <a> in "to inquire more...." in totalsales.php

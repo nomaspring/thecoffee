@@ -32,6 +32,7 @@ category	item	price
 2	tea latte	200
 2	iced lemon	150
 2	hot chocolate	220
+2	milk	90
 3	mocha smoothie	250
 3	caramel smoothie	250
 3	banana smoothie	250
@@ -102,6 +103,7 @@ category	item	price
 10	coffee mousse	250
 10	tiramisu	220
 10	orange soufflé	220
+10	apple pie	250
 10	ice cream single	170
 10	ice cream double	300
 11	beans 250g	800

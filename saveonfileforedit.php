@@ -1,7 +1,7 @@
 <html>
 	<?php
-		unlink("record/{$_POST['pretable']}.txt");
-		$fn = "record/{$_POST['ordertable']}.txt";
+		unlink("D:/OneDrive/billing/record/{$_POST['pretable']}.txt");
+		$fn = "D:/OneDrive/billing/record/{$_POST['ordertable']}.txt";
 		$ft = $_POST['savetext'];
 		$cf = fopen($fn, "w");
 		fwrite($cf, $ft);

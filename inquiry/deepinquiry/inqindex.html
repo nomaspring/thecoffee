@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="utf-8">
+		<title>cafe The Coffee Order Management System</title>
+		<link rel="stylesheet" href="/oms1/supervisor/oms.css?mut=<?php echo time()?>" type="text/css" media="screen">
+	</head>
+	<body>
+	    <header>
+	      <button class="hbutton hdibutton" style="vertical-align:middle" onclick="location.href='/oms1/supervisor/index.html';"><span>Administrative Inquiry</span></button>
+	    </header>
+	    <article>
+
+			<form action="result.php" method="POST">
+				<fieldset>
+					<legend>select inquiry :</legend>
+					<label><input type="radio" name="inquiry" value="daily" checked="checked">daily</label>
+					<label><input type="radio" name="inquiry" value="monthly">monthly</label>
+					<label><input type="radio" name="inquiry" value="yearly">yearly</label>
+				</fieldset>
+				<fieldset>
+					<legend>period from :</legend>
+					<input type="date" name="datefrom">
+				</fieldset>		
+				<fieldset>
+					<legend>period until :</legend>
+					<input type="date" name="dateuntil">
+				</fieldset>
+				
+		        <div class="btnbox">
+		        	<input type="button" class="sbtn btnno" value="Back" onclick="location.href='/oms1/supervisor/inquiry/todayssales.php'">
+		        	<input type="submit" class="sbtn btnok" value="Inquiry">
+		        </div>
+
+			</form>
+
+		</article>
+	</body>
+</html>

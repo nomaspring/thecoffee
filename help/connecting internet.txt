@@ -1,0 +1,11 @@
+port forwarding
+
+27.34.48.85:80      public ip
+.....:8080 for mac
+
+setting on router
+192.168.100(or 0).1 private ip
+
+
+
+refer https://opentutorials.org/module/1514/9483 port forwarding

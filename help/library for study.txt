@@ -26,3 +26,10 @@
 		$nepaltime=mktime()+(3600*14-(60*15));
 		$disptime = date('YmdHi', $nepaltime);
 	?>
+
+
+//making and adding array
+
+	refer to recordintosc.php
+
+

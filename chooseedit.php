@@ -4,50 +4,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
     <title>cafe The Coffee Order Management System</title>
-    <link rel="stylesheet" href="style.css" media="screen" title="no title" charset="utf-8">
-    <style>
-      .btn {
-        border: none;
-        background: #ddd;
-        padding: 50px 28px;
-        cursor: pointer;
-      }
-      .btn:hover {
-        background: #0b7dda;
-        color: white;
-      }
-      .table {
-        border: none;
-        background: #ddd;
-        padding: 10px 20px;
-        margin:3px;
-      }
-
-    </style>
+    <link rel="stylesheet" href="oms.css?mut=<?php echo time()?>" type="text/css" media="screen">
   </head>
 
-  <body id="body">
-  
+  <body>
     <header>
-        <h2><a href="index.html">Order Management System</a></h2>
+      <button class="hbutton" style="vertical-align:middle" onclick="location.href='/oms1/supervisor/index.html';"><span>Order Management System</span></button>
     </header>
-
-    <section>
-    <div id="occupied">
-      <p>Select Table to Edit</p>
-      <form action="orderedit.php" method="POST">
-        <?php
-          include 'showtableno.php';
-          foreach($occupiedtable AS $targettab){
+    
+    <article>
+      <p>select table to edit :</p>
+      <div class="btnbox">
+        <form action="orderedit.php" method="POST">
+          <?php
+            include 'showtableno.php';
+            if (count($occupiedtable)>0) {
+              foreach($occupiedtable AS $targettab){
                 echo "
-<button class=\"btn table\" name=\"targettable\" value=\"{$targettab}\">{$targettab}</button>";
+    <button class=\"btn tablebtn\" name=\"targettable\" value=\"{$targettab}\">{$targettab}</button>";
               }
-        ?>
-      </form>
-    </div>
-    </section>
+            } else {
+              echo "<script>alert(\"no table to select. make new bill first.\"); location.href='index.html';</script>";
+            }
+          ?>
+        </form>
+      </div> 
+    </article>
+    <footer>
+      <a href="http://www.facebook.com/thecoffeenepal">www.facebook.com/thecoffeenepal</a>
+    </footer>
   </body>
-  <footer>
-    <a href="http://www.facebook.com/thecoffeenepal">www.facebook.com/thecoffeenepal</a>
-  </footer>
 </html>

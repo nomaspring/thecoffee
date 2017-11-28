@@ -1,7 +1,6 @@
       <?php
-        $insfiles = scandir("record/");
+        $insfiles = scandir("D:/OneDrive/billing/record/");
         $instables = str_replace(".txt", "", $insfiles);
-
         $tabletxt = file_get_contents("initdata/tableno.txt");
         $tablearray = explode(",", $tabletxt);
 

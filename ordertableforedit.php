@@ -16,15 +16,22 @@
 			$bavalue = str_replace("_", " ", $avalue);
 			$subtotal = 0;
 			$ordertext = "";
+			
+			include 'scfreelist.php';
+			$insfreescamount = 0;
 			for($c=2; $c<$itemcount; $c++){
 				$n=$c-1;
 				$insprice = getPrice($menus, $bakey[$c]);
 				$insamount = $insprice*$bavalue[$c];
+
+				if(in_array($bakey[$c], $menusscfree)) {
+					$insfreescamount = $insfreescamount+$insamount;
+				}
 				echo "<tr><td>{$n}</td><td>{$bakey[$c]}</td><td align=right>{$insprice}</td><td align=right>{$bavalue[$c]}</td><td align=right>".number_format($insamount)."</td></td>";
 				$subtotal = $subtotal+$insamount;
 				$ordertext = $ordertext.$n.":".$bakey[$c].":".$insprice.":".$bavalue[$c].":".$insamount."\n";
 			};
-			$sc = $subtotal*0.1;
+			$sc = ($subtotal-$insfreescamount)*0.1;
 			$gt = $subtotal+$sc;
 		?>
 	</tbody>

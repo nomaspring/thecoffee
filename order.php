@@ -4,73 +4,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
     <title>cafe The Coffee Order Management System</title>
-    <link rel="stylesheet" href="style.css" media="screen" title="no title" charset="utf-8">
-    <style media="screen">
-    </style>
+    <link rel="stylesheet" href="oms.css?mut=<?php echo time()?>" type="text/css" media="screen">
   </head>
-  <body id="body">
+  <body>
     <header>
-        <h2><a href="index.html">Order Management System</a></h1>
+      <button class="hbutton" style="vertical-align:middle" onclick="location.href='/oms1/supervisor/index.html';"><span>Order Management System</span></button>
     </header>
 
-    <div id="content">
-      <article>
+    <article>
+      table  : <select name="tableno" id="tableno" disabled="true">
+        <option value="">Select Table No</option>
+        <?php
+          $tabletxt = file_get_contents("initdata/tableno.txt");
+          $tablearray = explode(",", $tabletxt);
+          foreach($tablearray AS $tabno) {
+            if($tabno==$_POST["targettable"]){
+              echo "<option value=\"{$tabno}\" selected=\"selected\">{$tabno}</option>";
+            } else {
+              echo "<option value=\"{$tabno}\" >{$tabno}</option>";
+            }
+           }
+        ?>
+      </select><br />
 
-        Select table no : <select name="tableno" id="tableno">
-          <option value="">Select Table No</option>
+      menu : <select name="category" id="category" onchange="changecatlist();">
+        <option value="">Select Category</option>
           <?php
-            $tabletxt = file_get_contents("initdata/tableno.txt");
-            $tablearray = explode(",", $tabletxt);
-            foreach($tablearray AS $tabno) {
-              if($tabno==$_POST["targettable"]){
-                echo "<option value=\"{$tabno}\" selected=\"selected\">{$tabno}</option>";
-              } else {
-                echo "<option value=\"{$tabno}\" >{$tabno}</option>";
-              }
-             }
+          echo file_get_contents("initdata/catlist.txt");
           ?>
-        </select><br />
+      </select>
 
-        Select menu  : <select name="category" id="category" onchange="changecatlist();">
-          <option value="">Select Category</option>
-            <?php
-            echo file_get_contents("initdata/catlist.txt");
-            ?>
-        </select>
+      <select name="item" id="item">
+        <option value="">Select Item</option>
+      </select>
+      <div class="btnbox">
+        <input type="button" class="sbtn btncontinue" id="btnadd" value="Add" disabled="true"> 
+      </div>
+      <hr/>
 
-        <select name="item" id="item">
-          <option value="">Select Item</option>
-        </select>
-        <input type="button" id="btnadd" value="Add">
-        <br/>
-        <hr/>
-
-        <!-- showing field for all order -->
-        <form action=".\process.php" method="POST">
-          Order details on table no :
-          <input type="text" style="border:none" name="tabno" id="tabno" value="">
-
-          <div class="billfield";">
-            <table border-style="ridge" width="400">
-              <thead style="background-color:peru">
-                <tr>
-                  <td>no</td>
-                  <td>item</td>
-                  <td>q'ty</td>
-                  <td>edit</td>
-                </tr>
-              </thead>
-              <tbody id="orderlist">
-              </tbody>
-            </table>
-          </div>
-
-                  <!-- select changing page -->
-          <input type="button" name="orderwork" value="Cancel" onclick="location.href='index.html'">
-          <input type="submit" value="Done">
-        </form>
-      </article>
-    </div>
+      <!-- showing field for all order -->
+      <form action=".\process.php" method="POST">
+        Order details on table no :
+        <input type="text" style="border:none" name="tabno" id="tabno" value="">
+        <table>
+          <thead style="background-color:peru">
+            <tr>
+              <td>no</td>
+              <td>item</td>
+              <td>q'ty</td>
+              <td>edit</td>
+            </tr>
+          </thead>
+          <tbody id="orderlist">
+          </tbody>
+        </table>
+        <div class="btnbox">
+          <input type="button" class="sbtn btnno" name="orderwork" value="Cancel" onclick="location.href='index.html'">
+          <input type="submit" class="sbtn btnok" id="btndone" value="Done" disabled="true">
+        </div>
+      </form>
+    </article>
     
     <?php
       include 'initdata/catanditems.php';
@@ -96,6 +89,8 @@
                 var category = new Option(categories[i], i);
                 itemlist.options.add(category);
             }
+            $("#item option:eq(0)").attr("selected", "selected");
+            $("#btnadd").attr('disabled', false);
         }
       }
 
@@ -110,23 +105,24 @@
       });
 
       $("#btnadd").on("click",function insertordertolist(){
-        var initno = $("#orderlist tr:last").index()+1;
-        var listno = initno+1;
-        var selection = $("#item option:selected").text();
-        var detailready = '<tr><td>'+listno+'</td><td>'+selection+'</td><td><input type="number" name="'+selection+'" value="1" min="1" style="width:3em; border:none;"/></td><td><input type="button" class="btndel" value="delete"/></td></tr>';   
-        $("#orderlist").append(detailready);
-        // $("#category option:eq(0)").prop("selected", true);
-      });
+          var initno = $("#orderlist tr:last").index()+1;
+          var listno = initno+1;
+          var selection = $("#item option:selected").text();
+          var detailready = '<tr><td>'+listno+'</td><td>'+selection+'</td><td><input type="number" name="'+selection+'" value="1" min="1"/></td><td><input type="button" class="btndel" value="delete : not ready" disabled="true"/></td></tr>';   
+          $("#orderlist").append(detailready);
+          $("#btndone").attr('disabled', false);
+        });
 
-      $(".btndel").live("click",function(){
-       var clickedrow = $(this).parent().parent();
-       clickedrow.remove();
+      $(".btndel").on("click",function(){
+        var clickedrow = $(this).parent().parent();
+        var cls = clickedRow.attr("class");
+        clickedrow.remove();
       });
       
     </script>
     
+    <footer>
+      <a href="http://www.facebook.com/thecoffeenepal">www.facebook.com/thecoffeenepal</a>
+    </footer>
   </body>
-  <footer>
-    <a href="http://www.facebook.com/thecoffeenepal">www.facebook.com/thecoffeenepal</a>
-  </footer>
 </html>
