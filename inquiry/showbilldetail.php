@@ -9,7 +9,7 @@
 
 	<body>
 	    <header>
-			<button class="hbutton hibutton" style="vertical-align:middle" onclick="location.href='/oms1/supervisor/index.html';"><span>Administrative Inquiry</span></button>
+			<button class="hbutton hibutton" style="vertical-align:middle" onclick="location.href='../index.html';"><span>Administrative Inquiry</span></button>
 	    </header>
 	    <article>
 			<table>
@@ -19,7 +19,8 @@
 					<td>count</td>
 				</tr>
 				<?php
-					$filePath = "D:/OneDrive/billing/record/billdata/{$_POST['billno']}.txt";
+					include '../repository.php';
+					$filePath = $repository."oms1/record/record/billdata/{$_POST['billno']}.txt";
 					$lines = file($filePath);
 					foreach($lines AS $line) {
 						$eachorder = explode(":", $line);
@@ -28,7 +29,7 @@
 				?>
 			</table>
 			<div class="btnbox">
-	  			<input type="button" class="sbtn btnno" value="Back" onclick="location.href='/oms1/supervisor/inquiry/todayssales.php'">
+	  			<input type="button" class="sbtn btnno" value="Back" onclick="location.href='todayssales.php'">
 	        </div>
 		</article>
 	</body>

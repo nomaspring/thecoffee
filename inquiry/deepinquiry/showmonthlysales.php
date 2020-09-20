@@ -1,5 +1,7 @@
 <html>
 	<?php
+		include '../../repository.php';
+
 		$yearfrom = date('Y', strtotime($_POST['datefrom']));
 		$yearuntil = date('Y', strtotime($_POST['dateuntil']));
 		$monfrom = date('m', strtotime($_POST['datefrom']));
@@ -26,7 +28,7 @@
 <!-- recall today's sales from totalbill.txt -->
 
 	  	<?php
-			$fnms = "d:/onedrive/billing/record/total/monthlysales.txt";
+			$fnms = $repository."oms1/record/record/total/monthlysales.txt";
 			$salesinlinearr = file($fnms);
 			foreach($salesinlinearr AS $case) {
 				$monthlysales = explode(":", $case);
@@ -45,7 +47,7 @@
 		echo "average : ".number_format($totalamount/$months);
 	?>
 	<div class="btnbox">
-			<input type="button" class="sbtn btnno" value="Back" onclick="location.href='/oms1/supervisor/inquiry/deepinquiry/inqindex.html'">
+			<input type="button" class="sbtn btnno" value="Back" onclick="location.href='inqindex.html'">
     </div>
 </html>	
 

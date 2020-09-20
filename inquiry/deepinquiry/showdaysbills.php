@@ -3,15 +3,17 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta charset="utf-8">
 		<title>cafe The Coffee Order Management System</title>
-		<link rel="stylesheet" href="/oms1/supervisor/oms.css?mut=<?php echo time()?>" type="text/css" media="screen">
+		<link rel="stylesheet" href="../../oms.css?mut=<?php echo time()?>" type="text/css" media="screen">
 	</head>
 
 	<body>
 	    <header>
-	    	<button class="hbutton hdibutton" style="vertical-align:middle" onclick="location.href='/oms1/supervisor/index.html';"><span>Administrative Inquiry</span></button>
+	    	<button class="hbutton hdibutton" style="vertical-align:middle" onclick="location.href='../../index.html';"><span>Administrative Inquiry</span></button>
 	    </header>
 	    <article>
 			<?php
+				include '../../repository.php';
+
 				$searchdate = strtotime($_POST['searchdate']);
 				$dispyear = date('Y', $searchdate);
 				$dispmonth = date('m', $searchdate);
@@ -37,7 +39,7 @@
 		<!-- recall today's sales from totalbill.txt -->
 
 				  	<?php
-						$fntb = "d:/onedrive/billing/record/total/totalbill.txt";
+						$fntb = $repository."oms1/record/record/total/totalbill.txt";
 						$saleslinearr = file($fntb);
 
 						foreach($saleslinearr AS $case) {
@@ -59,7 +61,7 @@
 				echo "<h3>sum : ".number_format($adaysales)."</h3>";
 			?>
 			<div class="btnbox">
-				<input type="button" class="sbtn btnno" value="Back" onclick="location.href='/oms1/supervisor/inquiry/deepinquiry/inqindex.html'">
+				<input type="button" class="sbtn btnno" value="Back" onclick="location.href='inqindex.html'">
     		</div>
 		</article>
 	</body>

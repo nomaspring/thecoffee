@@ -1,5 +1,7 @@
 <html>
 	<?php
+		include '../../repository.php';
+
 		$days = intval(((strtotime($_POST['dateuntil'])-strtotime($_POST['datefrom']))/86400)+1);
 		echo "<h3>period : {$_POST['datefrom']} till {$_POST['dateuntil']}</h3>";
 		echo "inquiry : {$_POST['inquiry']}, {$days} days";
@@ -20,7 +22,7 @@
 		  		$datefrom = strtotime($_POST['datefrom']);
 		  		$dateuntil = strtotime($_POST['dateuntil']);
 
-				$fnds = "d:/onedrive/billing/record/total/dailysales.txt";
+				$fnds = $repository."oms1/record/record/total/dailysales.txt";
 				$salesinlinearr = file($fnds);
 
 				foreach($salesinlinearr AS $case) {
@@ -43,7 +45,7 @@
 		echo "average : ".number_format($totalamount/$days);
 	?>
 	<div class="btnbox">
-			<input type="button" class="sbtn btnno" value="Back" onclick="location.href='/oms1/supervisor/inquiry/deepinquiry/inqindex.html'">
+			<input type="button" class="sbtn btnno" value="Back" onclick="location.href='inqindex.html'">
     </div>
 </html>	
 

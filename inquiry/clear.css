@@ -1,0 +1,18 @@
+.gridtable{
+	display: grid;
+	grid-template-columns: 70px 70px 70px 100px;
+}
+div{
+	margin-left: 5px
+	margin-right: 5px;
+	padding-left: 5px;
+	padding-right: 5px
+}
+.btnbox{
+	margin: 15px;
+	vertical-align: center;
+}
+.amount,.count{
+	text-align: right;
+	font-size: 1.2em;
+}

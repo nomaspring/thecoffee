@@ -43,50 +43,45 @@
 
 // current terms accumulated s/c
 
+				if (intval($dispdate)<17) {
+					if (intval($dispmonth)==1) {
+						$dispyear = $lastyear;
+					}
+					$dispmonth = $lastmonth;
+				}
+				$yearfrom = $dispyear;
+				$monthfrom = $dispmonth;
 
+				$chrmonthfrom = date('M',$monthfrom);
+				echo "this term : from <u>17th  {$chrmonthfrom}, {$yearfrom}</u> till yesterday";
 
+				echo "<table style=\"text-align:right\"><tr>";
+				foreach ($workers as $value) {
+					echo "<td>{$value}</td>";
+				}
+				echo "<td>sum</td></tr>";
+				echo "<tr>";
+
+				$begintime = $yearfrom.$monthfrom."17";
 				$filePath = $repository."oms1/record/record/scdata/scdaily.txt";
 				$dailysctotal = file($filePath);
-
-				echo "<p>this month</p><ul>";
 				$i = 0;
 				foreach ($workers as $value) {
 					foreach($dailysctotal AS $scdaily) {
 						$scdailydetail = explode(":", $scdaily);
-						$sctime = $scdailydetail[0].$scdailydetail[1];
-						if (intval($sctime)==intval($dispyear.$dispmonth)) {
-							$thisamount += $scdailydetail[4+$i];
+						$sctime = $scdailydetail[0].$scdailydetail[1].$scdailydetail[2];
+						if (intval($sctime)>=intval($begintime)) {
+							$amount += $scdailydetail[4+$i];
 						}
 					}
-					echo "<li>".$value."     : ".number_format($thisamount)."</li>";
-					$thistotal += $thisamount;
-					$thisamount = 0;
+					echo "<td>".number_format($amount)."</td>";
+					$sctotal += $amount;
+					$amount = 0;
 					$i++;
 				}
-				echo "<li>sum     : ".number_format($thistotal)."</li></ul>";
+				echo "<td>".number_format($sctotal)."</td>";
+				echo "</tr></table>";
 				echo "<hr>";
-
-				if (intval($dispmonth)==1) {
-					$dispyear = $lastyear;
-				}
-				echo "<p>last month</p><ul>";
-				$i = 0;
-				foreach ($workers as $value) {
-					foreach($dailysctotal AS $scdaily) {
-						$scdailydetail = explode(":", $scdaily);
-						$sctime = $scdailydetail[0].$scdailydetail[1];
-						if (intval($sctime)==intval($dispyear.$lastmonth)) {
-							$lastamount += $scdailydetail[4+$i];
-						}
-					}
-					echo "<li>".$value."     : ".number_format($lastamount)."</li>";
-					$lasttotal += $lastamount;
-					$lastamount = 0;
-					$i++;
-				}
-				echo "<li>sum     : ".number_format($lasttotal)."</li></ul>";
-				echo "<hr>";
-
 			?>
 
 			<div class="btnbox">

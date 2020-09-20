@@ -55,18 +55,13 @@
 
 		    <form action="closingwithjsp.php" method="POST">
 				<div class="btnbox">
-		  			<button type="button" class="sbtn btnno" onclick="location.href='../index.html'">Back</button>
+		  			<input type="button" class="sbtn btnno" value="Back" onclick="location.href='../index.html'">
 		        	<input type="hidden" name="todaysales" value="<?php echo $todaysales; ?>">
-		        	<button class="sbtn btncontinue">closing on counter</button>
+		        	<input type="submit" class="sbtn btncontinue" value="closing on counter">
 		        </div>
 		    </form>
 	        <br/>
 
-			<div class="btnbox">
-		        <button class="sbtn btncontinue btnccl" onclick="location.href='deepinquiry/inqindex.html'">inquire sales</button>
-		        <button class="sbtn btncontinue btnccl" onclick="location.href='deepinquiry/inqsc.php'">inquire s/c</button>
-		        <button class="sbtn btncontinue btnccl" onclick="location.href='closinginquiry.php'">closing</button>
-	        </div>
 
 
 		</article>

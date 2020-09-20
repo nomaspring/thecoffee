@@ -1,6 +1,7 @@
 <?php
-
-	$fnto = "d:/onedrive/billing/record/total/totalorder.txt";
+	include '../repository.php';
+	
+	$fnto = $repository."oms1/record/record/total/totalorder.txt";
 	$ordersinlinearr = file($fnto);
 
 	$iteminteg = [];
@@ -24,6 +25,9 @@
 	echo "<table><tr><td>item</td><td>qty</td></tr>";
 	foreach ($iteminteg as $item => $count) {
 		echo "<tr><td>{$item}</td><td>{$count}</td></tr>";
+
+		fwrite($inqfile, $count."\t".$item."\n");
+
 	}
 	echo "</table>";
 ?>
