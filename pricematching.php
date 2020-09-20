@@ -1,6 +1,7 @@
 	<?php
+		include 'repository.php';
 		$menus = array();
-		$filePath = "initdata/menulist.txt";
+		$filePath = $repository."oms1/record/initdata/menulist.txt";
 		$lines = file($filePath);
 		foreach($lines AS $line) {
 			$menuInfo = explode("\t", trim($line));

@@ -1,8 +1,9 @@
 <?php
+	include 'repository.php';
 	include 'scfreelist.php';
 	$insfreescamount = 0;
 
-	$filePath = "D:/OneDrive/billing/record/{$_POST['targettable']}.txt";
+	$filePath = $repository.'oms1/record/record/'.$tableno.'.txt';
 	$lines = file($filePath);
 	$subtotal = 0;
 	foreach($lines AS $line) {
@@ -16,7 +17,7 @@
 		</tr>";
 		$subtotal = $subtotal+$eachorder[4];
 		if(in_array($eachorder[1], $menusscfree)) {
-$insfreescamount = $insfreescamount+$eachorder[4];
+			$insfreescamount = $insfreescamount+$eachorder[4];
 		}
 	}
 	$sc = ($subtotal-$insfreescamount)*0.1;

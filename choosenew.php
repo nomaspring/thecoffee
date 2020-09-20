@@ -9,7 +9,7 @@
 
   <body>
     <header>
-      <button class="hbutton" style="vertical-align:middle" onclick="location.href='/oms1/supervisor/index.html';"><span>Order Management System</span></button>
+      <button class="hbutton" style="vertical-align:middle" onclick="location.href='index.html';"><span>Order Management System</span></button>
     </header>
 
     <article>
@@ -19,15 +19,11 @@
           <?php
             include 'showtableno.php';
             foreach($vacanttable AS $targettab){
-                  echo "
-  <button class=\"tablebtn\" name=\"targettable\" value=\"{$targettab}\">{$targettab}</button>";
+                  echo '<button class="tablebtn" name="targettable" value="'.$targettab.'">'.$targettab.'</button>';
                 }
           ?>
         </form>
       </div>
     </article>
-    <footer>
-      <a href="http://www.facebook.com/thecoffeenepal">www.facebook.com/thecoffeenepal</a>
-    </footer>
   </body>
 </html>

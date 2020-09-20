@@ -13,7 +13,8 @@
 			<form action="saveonfileforclear.php" method="POST">
 				<div class="btnbox">
 					<?php
-						include "initdata/workers.php";
+						include 'repository.php';
+						include 'workers.php';
 					?>
 					<?php
 						foreach ($workers as $key => $value) {

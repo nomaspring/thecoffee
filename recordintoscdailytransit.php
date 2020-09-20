@@ -1,6 +1,7 @@
 <?php
 
-	$filePath = "initdata/employee.txt";
+	include 'repository.php';
+	$filePath = $repository."oms1/record/initdata/employee.txt";
 	$worker = file($filePath);
 	foreach($worker AS $workername) {
 		$personinfo = explode(":", $workername);
@@ -9,7 +10,7 @@
 		}
 	}
 
-	$fnsc = "D:/OneDrive/billing/record/scdata/sc.txt";
+	$fnsc = $repository."oms1/record/record/scdata/sc.txt";
 	$scinlines = file($fnsc);
 	$lastsc = end($scinlines);
 	$lastscarray = explode(":", $lastsc);
@@ -34,7 +35,7 @@
 	}
 	$textsconly = implode(":", $dailyscarray);
 	$textforscdaily = "\n{$cyear}:{$cmonth}:{$cdate}:{$sctotal}:{$textsconly}";
-	$fnscdaily = "D:/OneDrive/billing/record/scdata/scdaily.txt";
+	$fnscdaily = $repository."oms1/record/record/scdata/scdaily.txt";
 	$cfscdaily = fopen($fnscdaily, "a");
 	fwrite($cfscdaily, $textforscdaily);
 	fclose($cfscdaily);

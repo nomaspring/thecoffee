@@ -1,11 +1,17 @@
 <?php 
+	include 'repository.php';
+
 	$workers = array();
-	$filePath = "initdata/employee.txt";
+	$filePath = $repository."oms1/record/initdata/employee.txt";
 	$worker = file($filePath);
 	foreach($worker AS $workername) {
 		$scratio = explode(":", trim($workername));
-		$workers[$scratio[0]] = $scratio[1];
+		if (!isset($scratio[3])) {
+			$workers[$scratio[0]] = $scratio[1];
+		}
 	}
+
+	$totalhead = array_sum($workers);
 
 	function getratio($workers, $worker) {
 	  $ratio = "";

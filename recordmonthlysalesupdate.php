@@ -1,8 +1,9 @@
 <?php
 
-	$fndailysales = "D:/OneDrive/billing/record/total/monthlysales.txt";
+	include 'repository.php';
+	$fndailysales = $repository."oms1/record/record/total/monthlysales.txt";
 	$fods = fopen($fndailysales, "a");
-	fwrite($fods, $textformonlysales);
+	fwrite($fods, $textformonthlysales);
 	fclose($fods);
 
 ?>

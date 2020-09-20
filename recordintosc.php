@@ -1,5 +1,6 @@
 <?php
-	include "initdata/workers.php";
+	include 'repository.php';
+	include 'workers.php';
 	$personalsc = array();
 	$actualcount = count($_POST['actualworker']);
 
@@ -15,7 +16,7 @@
 	}
 	$sctext = "\n".implode(":", $sctextarray);
 
-	$fnsc = "D:/OneDrive/billing/record/scdata/sc.txt";
+	$fnsc = $repository."oms1/record/record/scdata/sc.txt";
 	$cfsc = fopen($fnsc, "a");
 	fwrite($cfsc, $sctext);
 	fclose($cfsc);

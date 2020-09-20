@@ -2,16 +2,6 @@
 	include 'repository.php';
 	include 'daycount.php';
 
-
-/*check double clear*/
-
-	$is_file_exist = file_exists($repository."oms1/record/record/billdata/{$_POST['newbillno']}.txt");
-	if ($is_file_exist) {
-    	header('Location: inquiry/todayssales.php');
-	}
-	else {
-
-
 /*changing filename and moving directory clear bill*/
 	$ofn = $repository."oms1/record/record/{$_POST['targettable']}.txt";
 	$nfn = $repository."oms1/record/record/billdata/{$_POST['newbillno']}.txt";
@@ -64,8 +54,6 @@
 /*recording items into totalorder.txt*/
 	include 'recordintototalorder.php';
 
-	}
-
-	header('Location: inquiry/todayssales.php');
+	header('Location: index.html');
 ?>
 

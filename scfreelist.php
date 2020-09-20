@@ -1,6 +1,7 @@
 <?php
+		include 'repository.php';
 		$menusscfree = array();
-		$filePath = "initdata/scfreelist.txt";
+		$filePath = $repository."oms1/record/initdata/scfreelist.txt";
 		$lines = file($filePath);
 		foreach($lines AS $line) {
 			$menuInfo = explode("\t", trim($line));

@@ -9,7 +9,7 @@
 
   <body>
     <header>
-      <button class="hbutton" style="vertical-align:middle" onclick="location.href='/oms1/supervisor/index.html';"><span>Order Management System</span></button>
+      <button class="hbutton" style="vertical-align:middle" onclick="location.href='index.html';"><span>Order Management System</span></button>
     </header>
     
     <article>
@@ -24,14 +24,11 @@
     <button class=\"btn tablebtn\" name=\"targettable\" value=\"{$targettab}\">{$targettab}</button>";
               }
             } else {
-              echo "<script>alert(\"no table to select. make new bill first.\"); location.href='index.html';</script>";
+              echo "<script>alert(\"no bill to edit.\"); location.href='index.html';</script>";
             }
           ?>
         </form>
       </div> 
     </article>
-    <footer>
-      <a href="http://www.facebook.com/thecoffeenepal">www.facebook.com/thecoffeenepal</a>
-    </footer>
   </body>
 </html>

@@ -4,17 +4,19 @@
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
 	    <meta charset="utf-8">
 	    <title>cafe The Coffee Order Management System</title>
+    	<link rel="stylesheet" href="fontello-63cbc188/css/fontello.css">
 	    <link rel="stylesheet" href="oms.css?mut=<?php echo time()?>" type="text/css" media="screen">
 	</head>
 	<body>
 		<article>
 			<?php
+				include 'repository.php';
 				$itemcount = count($_POST);
 				echo "order details of table : <strong>".$_POST['pretable']." => ".$_POST['tabno']."</strong><br/>";
 			?>
 
 			<?php
-				include 'initdata/pricematching.php';
+				include 'pricematching.php';
 		   	?>
 			<hr/>
 			<?php
@@ -26,8 +28,8 @@
 				<input type="hidden" name="ordertable" value="<?php echo $_POST['tabno']; ?>">
 				<input type="hidden" name="savetext" value="<?php echo $ordertext; ?>">
 				<div class="btnbox">
-					<input type="button" class="sbtn btnno" value="cancel" id="btncancel" onclick="discardorder();">
-					<input type="submit" class="sbtn btnok" value="OK">
+					<button type="button" class="sbtn btnno" id="btncancel" onclick="discardorder();">Cancel <i class="icon-home"></i></button>
+					<button type="submit" class="sbtn btnok">OK <i class="icon-ok-1"></i></button>
 				</div>
 			</form>
 		</article>

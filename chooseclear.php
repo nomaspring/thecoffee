@@ -9,29 +9,32 @@
 
   <body>
     <header>
-      <button class="hbutton" style="vertical-align:middle" onclick="location.href='/oms1/supervisor/index.html';"><span>Order Management System</span></button>
+      <button class="hbutton" style="vertical-align:middle" onclick="location.href='index.html';"><span>Order Management System</span></button>
     </header>
 
     <article>
       <p>select table to make clear :</p>
       <div class="btnbox">
-        <form action="processforclear.php" method="POST">
+        <form action="processforclearwithdc.php" method="POST">
           <?php
+
+            include 'repository.php';
+            include 'promotion/promo_info.php';
+
             include 'showtableno.php';
             if (count($occupiedtable)>0) {
+              echo '<div class="dc">
+              <p>to make '.$promorate.' off bill for '.$promotitle.', check this box first and select table</p>
+              <input type="checkbox" name="dc"></div>';
               foreach($occupiedtable AS $targettab){
-                echo "
-    <button class=\"btn tablebtn\" name=\"targettable\" value=\"{$targettab}\">{$targettab}</button>";
+                echo '<button class="btn tablebtn" name="targettable" value="'.$targettab.'">'.$targettab.'</button>';
               }
             } else {
-                echo "<script>alert(\"no table to make clear. make new bill first.\"); location.href='index.html';</script>";
+                echo '<script>alert("no bills."); location.href="index.html";</script>';
             }
           ?>
         </form>
       </div>
     </article>
-    <footer>
-      <a href="http://www.facebook.com/thecoffeenepal">www.facebook.com/thecoffeenepal</a>
-    </footer>
   </body>
 </html>

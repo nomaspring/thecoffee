@@ -4,11 +4,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
     <title>cafe The Coffee Order Management System</title>
+    <link rel="stylesheet" href="fontello-63cbc188/css/fontello.css">
     <link rel="stylesheet" href="oms.css?mut=<?php echo time()?>" type="text/css" media="screen">
   </head>
   <body>
     <header>
-      <button class="hbutton" style="vertical-align:middle" onclick="location.href='/oms1/supervisor/index.html';"><span>Order Management System</span></button>
+      <button class="hbutton" style="vertical-align:middle" onclick="location.href='index.html';"><span>Order Management System</span></button>
     </header>
 
     <article>
@@ -16,6 +17,7 @@
       table : <select name="tableno" id="tableno">
         <option value="">Select Table No</option>
         <?php
+          include 'repository.php';        
           echo "<option value=\"{$_POST["targettable"]}\" selected=\"selected\">{$_POST["targettable"]}</option>";
           include 'showtableno.php';
           if (count($vacanttable)>0) {
@@ -30,7 +32,7 @@
       menu  : <select name="category" id="category" onchange="changecatlist();">
         <option value="">Select Category</option>
           <?php
-          echo file_get_contents("initdata/catlist.txt");
+          echo file_get_contents($repository."oms1/record/initdata/catlist.txt");
           ?>
       </select>
 
@@ -38,12 +40,12 @@
         <option value="">Select Item</option>
       </select>
       <div class="btnbox">
-        <input type="button" class="sbtn btncontinue" id="btnadd" value="Add" disabled="true">
+        <button type="button" class="sbtn btncontinue" id="btnadd" disabled="true">Add <i class="icon-down-circled"></i></button>
       </div>
       <hr/>
 
       <!-- showing field for all order -->
-      <form action=".\processforedit.php" method="POST">
+      <form action="processforedit.php" method="POST">
         Order details on table no :
         <input type="hidden" name="pretable" value="<?php echo $_POST['targettable']; ?>">
         <input type="text" style="border:none" name="tabno" id="tabno" value="">
@@ -67,14 +69,15 @@
           </table>
         </div>
         <div class="btnbox">
-          <input type="button" class="sbtn btnno" value="Cancel Edit" onclick="location.href='index.html'">
-          <input type="submit" class="sbtn btnok" value="Change">
+          <button type="button" class="sbtn btnno" onclick="location.href='index.html'">
+          No Change <i class="icon-cancel-1"></i></button>
+          <button type="submit" class="sbtn btnok">Change <i class="icon-export-alt"></i></button>
         </div>
       </form>
     </article>
     
     <?php
-      include 'initdata/catanditems.php';
+      include 'catanditems.php';
     ?>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
@@ -129,7 +132,4 @@
     </script>
     
   </body>
-  <footer>
-    <a href="http://www.facebook.com/thecoffeenepal">www.facebook.com/thecoffeenepal</a>
-  </footer>
 </html>

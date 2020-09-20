@@ -17,6 +17,7 @@
 			$subtotal = 0;
 			$ordertext = "";
 			
+			include 'repository.php';
 			include 'scfreelist.php';
 			$insfreescamount = 0;
 			for($c=2; $c<$itemcount; $c++){
