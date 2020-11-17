@@ -1,5 +1,5 @@
 <?php
-	$nepaltime=mktime()+(3600*13-(60*15));
+	$nepaltime=mktime()+(3600*14-(60*15));
 	$dispyear = date('Y', $nepaltime);
 	$dispmonth = date('m', $nepaltime);
 	$dispdate = date('d', $nepaltime);
@@ -10,4 +10,8 @@
 	$yesterday = date("d", strtotime("-1 day", $nepaltime));
 	$mmonth = date('M',$nepaltime);
 	
+	$disptime = date('d M Y, H:i', $nepaltime);
+	$recdate = date('Ymd', $nepaltime);
+	$rectime = date('Hi', $nepaltime);
+
 ?>

@@ -7,7 +7,7 @@
 	$lasttc = end(file($fntc));
 	$lasttcdetail = explode(":", $lasttc);
 	if ($lasttcdetail[2]==$yesterday) {
-		echo "<script>alert(\"already done!! click tomorrow morning again\"); location.href='index.html';</script>";
+		echo "<script>alert(\"already done!! click tomorrow morning again\"); location.href='index.php';</script>";
 	} else {
 
 /* to make month when change month*/
@@ -51,6 +51,6 @@
 		fwrite($newsd, $yesterdaysscdaily);
 		fclose($newsd);
 
-		header('Location: index.html');
+		header('Location: index.php');
 	}
 ?>

@@ -19,7 +19,7 @@
           include "repository.php";
 
           $tabletxt = file_get_contents($repository."oms1/record/initdata/tableno.txt");
-          $tablearray = explode(",", $tabletxt);
+          $tablearray = explode(":", $tabletxt);
           foreach($tablearray AS $tabno) {
             if($tabno==$_POST["targettable"]){
               echo "<option value=\"{$tabno}\" selected=\"selected\">{$tabno}</option>";
@@ -30,7 +30,8 @@
         ?>
       </select><br />
 
-      menu : <select name="category" id="category" onchange="changecatlist();">
+      menu : 
+      <select name="category" id="category" onchange="changecatlist();">
         <option value="">Select Category</option>
           <?php
           echo file_get_contents($repository."oms1/record/initdata/catlist.txt");
@@ -40,6 +41,7 @@
       <select name="item" id="item">
         <option value="">Select Item</option>
       </select>
+
       <div class="btnbox">
         <button type="button" class="sbtn btncontinue" id="btnadd" disabled="true">Add <i class="icon-down-circled"></i></button>
       </div>
@@ -62,7 +64,7 @@
           </tbody>
         </table>
         <div class="btnbox">
-          <button type="button" class="sbtn btnno" onclick="location.href='index.html'">
+          <button type="button" class="sbtn btnno" onclick="location.href='index.php'">
           Cancel <i class="icon-cancel-1"></i></button>
           <button type="submit" class="sbtn btnok" id="btndone" disabled="true">Order <i class="icon-export-alt"></i></button>
         </div>

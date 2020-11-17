@@ -103,7 +103,7 @@
 				<div class="btnbox">
 					<button class="btnadd">add</button>
 					<button type="submit" class="btnsave" onclick="alert('changes saved')">save changes</button>
-					<button type="button" class="btncancel" onclick="location.href='index.html'">back</button>
+					<button type="button" class="btncancel" onclick="location.href='index.php'">back</button>
 				</div>
 			</form>
 

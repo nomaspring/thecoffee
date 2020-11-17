@@ -1,21 +1,17 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	    <meta name="viewport" content="width=device-width, initial-scale=1">
-	    <meta charset="utf-8">
-	    <title>cafe The Coffee Order Management System</title>
+	   <meta name="viewport" content="width=device-width, initial-scale=1">
+	   <meta charset="utf-8">
+	   <title>cafe The Coffee Order Management System</title>
     	<link rel="stylesheet" href="fontello-63cbc188/css/fontello.css">
-	    <link rel="stylesheet" href="oms.css?mut=<?php echo time()?>" type="text/css" media="screen">
+	   <link rel="stylesheet" href="oms.css?mut=<?php echo time()?>" type="text/css" media="screen">
 	</head>
 	<body style="font-size: 0.7em">
 		<?php
 			include 'repository.php';
-            include 'promotion/promo_info.php';
-
-			$nepaltime=mktime()+(3600*14-(60*15));
-			$disptime = date('d M Y, H:i', $nepaltime);
-			$recdate = date('Ymd', $nepaltime);
-			$rectime = date('Hi', $nepaltime);
+         include 'setting/promo_info.php';
+			include 'daycount.php';
 
 			$fnst = $repository."oms1/record/record/total/totalbill.txt";
 			$cfst = fopen($fnst, "r");
@@ -32,11 +28,12 @@
 		<div id="billhead">
 			<h3 style="text-align: center">Receipt</h3>
 			The Coffee Pvt. Ltd.<br/>
-			gaurighat, lakeside, pokhara, kaski, nepal<br/>
+			lakeside 8th st., gaurighat, pokhara, kaski<br/>
 			PAN no : 304227178<br/>
+			
 			<?php
-				echo "bill no : ".$newbillno."<br/>";
-				echo "bill time : ".$disptime;
+			echo "bill no : ".$newbillno."<br/>";
+			echo "bill time : ".$disptime;
 			?>
 		</div>
 
@@ -70,12 +67,13 @@
 						<td colspan="2">service charge</td>
 						<td colspan="2" align=right><?php echo number_format($sc); ?></td>
 					</tr>
-					<tr style="background-color:burlywood">
+					<tr style="background-color:burlywood; font-size:1.5em">
 						<td colspan="2">grand total</td>
-						<td colspan="3" align=right style = " font-size:1.5em"><?php echo number_format($gt); ?></td>
+						<td colspan="3" align=right><?php echo number_format($gt); ?></td>
 					</tr>
-					<?php
-						if (isset($_POST['dc'])) {
+
+<!-- working only on promotion  -->									<?php
+						if (isset($dcrate)) {
 							$dc = intval(-$gt*$dcrate);
 							$sc = 0;
 							$gt = $gt+$dc;
@@ -83,19 +81,23 @@
 								<td colspan="2">'.$promorate.' off by '.$promotitle.'</td>
 								<td colspan="3" align=right>'.$dc.'</td>
 							</tr>';
-							echo '<tr style="background-color:burlywood">
+							echo '<tr style="background-color:burlywood; font-size:1.5em">
 								<td colspan="2">actual amount</td>
-								<td colspan="3" align=right style = " font-size:1.5em">'.number_format($gt).'</td>
+								<td colspan="3" align=right>'.number_format($gt).'</td>
 							</tr>';
 						}
 					?>
-		        </table>
+<!-- -------------------------->
+
+ 	        </table>
 			</div>
 			<hr/>
 			<div class="btnbox">
-				<button type="button" class="sbtn btnno" onclick="location.href='index.html'">Home <i class="icon-home"></i></button>
+				<button type="button" class="sbtn btnno" onclick="location.href='index.php'">Home <i class="icon-home"></i></button>
+				<form action="orderedit.php" method="POST" style="display: inline-block;">
+					<button class="sbtn btnedit" name="targettable" value="<?php echo $tableno; ?>">Edit <i class="icon-arrows-cw"></i></button>
+				</form>
 				<button type="button" class="sbtn btncontinue" onclick="window.print()">Print <i class="icon-print"></i></button>
-				<button type="button" class="sbtn btncontinue" onclick="location.href='/oms2/index.html'">VAT Bill <i class="icon-print"></i></button>
 
 				<form action="saveonfileforclear.php" method="POST" style="display: inline-block;">
 					<input type="hidden" name="newbillno" value="<?php echo $newbillno; ?>">

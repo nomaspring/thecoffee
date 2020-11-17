@@ -38,7 +38,7 @@
 			function discardorder(){
 				var yesorno = confirm("cancel orders?");
 				if(yesorno){
-					window.location.href='index.html';
+					window.location.href='index.php';
 				}
 			};
 	    </script>

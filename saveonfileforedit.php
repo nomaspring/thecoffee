@@ -7,6 +7,6 @@
 		$cf = fopen($fn, "w");
 		fwrite($cf, $ft);
 		fclose($cf);
-		header('Location: index.html');
+		header('Location: index.php');
 	?>
 </html>          

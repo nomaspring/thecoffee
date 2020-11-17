@@ -9,7 +9,7 @@
   </head>
   <body>
     <header>
-      <button class="hbutton" style="vertical-align:middle" onclick="location.href='index.html';"><span>Order Management System</span></button>
+      <button class="hbutton" style="vertical-align:middle" onclick="location.href='index.php';"><span>Billing System</span></button>
     </header>
 
     <article>
@@ -50,7 +50,7 @@
         <input type="hidden" name="pretable" value="<?php echo $_POST['targettable']; ?>">
         <input type="text" style="border:none" name="tabno" id="tabno" value="">
 
-        <div class="billfield";">
+        <div class="billfield";>
           <table border-style="ridge" width="400">
             <thead style="background-color:peru">
               <tr>
@@ -69,7 +69,7 @@
           </table>
         </div>
         <div class="btnbox">
-          <button type="button" class="sbtn btnno" onclick="location.href='index.html'">
+          <button type="button" class="sbtn btnno" onclick="location.href='index.php'">
           No Change <i class="icon-cancel-1"></i></button>
           <button type="submit" class="sbtn btnok">Change <i class="icon-export-alt"></i></button>
         </div>

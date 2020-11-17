@@ -51,6 +51,6 @@
 		fwrite($newsd, $yesterdaysscdaily);
 		fclose($newsd);
 
-		header('Location: index.html');
+		header('Location: index.php');
 	}
 ?>
