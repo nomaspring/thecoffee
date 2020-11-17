@@ -94,7 +94,7 @@
 				<input type="hidden" name="todaysales" value="<?php echo $_POST['todaysales']; ?>">
 				<button type="submit">save</button>
                 <button type="button" onclick="window.print()">print</button>
-                <button type="button" onclick="location.href='../index.html'">cancel</button>
+                <button type="button" onclick="location.href='../index.php'">cancel</button>
 
 			</div>
 		</form>

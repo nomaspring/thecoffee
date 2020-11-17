@@ -1,0 +1,11 @@
+to set informations on bill
+
+catch phrase or slogan
+
+design
+
+company details
+- address
+- contact number
+- homepage or sns url
+- setting bill number

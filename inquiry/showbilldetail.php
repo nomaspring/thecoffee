@@ -9,7 +9,7 @@
 
 	<body>
 	    <header>
-			<button class="hbutton hibutton" style="vertical-align:middle" onclick="location.href='../index.html';"><span>Administrative Inquiry</span></button>
+			<button class="hbutton hibutton" style="vertical-align:middle" onclick="location.href='../index.php';"><span>Administrative Inquiry</span></button>
 	    </header>
 	    <article>
 			<table>

@@ -8,7 +8,7 @@
 
 	<body>
 	    <header>
-	    	<button class="hbutton hdibutton" style="vertical-align:middle" onclick="location.href='../../index.html';"><span>Administrative Inquiry</span></button>
+	    	<button class="hbutton hdibutton" style="vertical-align:middle" onclick="location.href='../../index.php';"><span>Administrative Inquiry</span></button>
 	    </header>
 	    <article>
 			<?php

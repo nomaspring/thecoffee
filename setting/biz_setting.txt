@@ -1,0 +1,6 @@
+policy
+- price
+- service charge
+- VAT charging
+
+etc

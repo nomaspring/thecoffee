@@ -1,0 +1,9 @@
+set menu
+
+changing, adding, removing
+
+category, item
+
+name, price, etc
+
+service charge

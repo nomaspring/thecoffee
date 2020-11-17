@@ -48,7 +48,7 @@
 	</table>
  	<hr>
 	<div class="btnbox">
-		<input type="button" class="sbtn btnno" value="OK" onclick="location.href='../index.html'">
+		<input type="button" class="sbtn btnno" value="OK" onclick="location.href='../index.php'">
 	</div>
 
 </html>

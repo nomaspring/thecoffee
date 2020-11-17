@@ -9,7 +9,7 @@
 
 	<body>
 	    <header>
-	      <button class="hbutton hibutton" style="vertical-align:middle" onclick="location.href='../index.html';"><span>Administrative Inquiry</span></button>
+	      <button class="hbutton hibutton" style="vertical-align:middle" onclick="location.href='../index.php';"><span>Administrative Inquiry</span></button>
 	    </header>
 	    <article>
 <!-- show all bills in today -->
@@ -55,7 +55,7 @@
 
 		    <form action="closingwithjsp.php" method="POST">
 				<div class="btnbox">
-		  			<button type="button" class="sbtn btnno" onclick="location.href='../index.html'">Back</button>
+		  			<button type="button" class="sbtn btnno" onclick="location.href='../index.php'">Back</button>
 		        	<input type="hidden" name="todaysales" value="<?php echo $todaysales; ?>">
 		        	<button class="sbtn btncontinue">closing on counter</button>
 		        </div>

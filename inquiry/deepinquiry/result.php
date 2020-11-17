@@ -8,7 +8,7 @@
 	</head>
 	<body>
 	    <header>
-	    	<button class="hbutton hdibutton" style="vertical-align:middle" onclick="location.href='../../index.html';"><span>Administrative Inquiry</span></button>
+	    	<button class="hbutton hdibutton" style="vertical-align:middle" onclick="location.href='../../index.php';"><span>Administrative Inquiry</span></button>
 	    </header>
 	    <article>
 			<?php 
@@ -21,7 +21,7 @@
 						break ;
 					case 'yearly': 
 						echo "<h2>Do you need yearly summary???<br/>I don't think so.</h2>";
-						echo "<div class=\"btnbox\"><input type=\"button\" class=\"sbtn btnno\" value=\"Back\" onclick=\"location.href='inqindex.html'\"></div>";
+						echo "<div class=\"btnbox\"><input type=\"button\" class=\"sbtn btnno\" value=\"Back\" onclick=\"location.href='inqindex.php'\"></div>";
 						break ;
 				}
 
