@@ -17,9 +17,7 @@
         <option value="">Select Table No</option>
         <?php
           include "repository.php";
-
-          $tabletxt = file_get_contents($repository."oms1/record/initdata/tableno.txt");
-          $tablearray = explode(":", $tabletxt);
+          include "showtableno.php";
           foreach($tablearray AS $tabno) {
             if($tabno==$_POST["targettable"]){
               echo "<option value=\"{$tabno}\" selected=\"selected\">{$tabno}</option>";
@@ -33,9 +31,9 @@
       menu : 
       <select name="category" id="category" onchange="changecatlist();">
         <option value="">Select Category</option>
-          <?php
-          echo file_get_contents($repository."oms1/record/initdata/catlist.txt");
-          ?>
+        <?php
+          include_once 'callingCategory.php';
+        ?>
       </select>
 
       <select name="item" id="item">

@@ -1,11 +1,16 @@
-      <?php
-        include 'repository.php';
-        $insfiles = scandir($repository."oms1/record/record/");
-        $instables = str_replace(".txt", "", $insfiles);
-        $tabletxt = file_get_contents($repository."oms1/record/initdata/tableno.txt");
-        $tablearray = explode(":", $tabletxt);
+<?php
+include 'repository.php';
 
-        $occupiedtable = array_intersect($tablearray,$instables);
+$insfiles = scandir($repository."oms1/record/record/");
+$instables = str_replace(".txt", "", $insfiles);
 
-        $vacanttable = array_diff($tablearray, $instables);
-      ?>
+$tabletxt = file($repository."oms1/record/initdata/tableno.txt");
+$tablearray = array();
+foreach ($tabletxt as $value) {
+	array_push($tablearray, trim($value));
+}
+
+$occupiedtable = array_intersect($tablearray,$instables);
+
+$vacanttable = array_diff($tablearray, $instables);
+?>

@@ -7,26 +7,27 @@
     <link rel="stylesheet" href="simplePage.css?mut=<?php echo time()?>" type="text/css" media="screen">
 </head>
 <body>
-	<form action="confirmNewTable.php" method="POST">
+	<form action="confirmNewCategory.php" method="POST">
 
 	<div class="grid-container">
 		<div class="grid-item">
 			<?php
 			include '../repository.php';
-			include '../showtableno.php';
-			echo '<h3>current table list :</h3>';
-			foreach ($tablearray as $value) {
-				echo $value.'<br>';
+			$rawFile = file($repository.'oms1/record/initdata/catlist.txt');
+			echo '<h3>current category list :</h3>';
+			for ($i=0; $i<count($rawFile) ; $i++) { 
+				echo $rawFile[$i].'<br>';
 			}
-			$oldTableText = implode("\n", $tablearray);
 			?>
 		</div>	
 		
 		<div class="grid-item">
 			<?php
-			echo '<h3>new table list :</h3>';
-			echo '<textarea name="allTable" rows="20">';
-			echo $oldTableText;
+			echo '<h3>new category list :</h3>';
+			echo '<textarea name="allCategory" rows="12">';
+			for ($i=0; $i<count($rawFile) ; $i++) { 
+				echo $rawFile[$i];
+			}
 			echo '</textarea>';
 			?>
 		</div>
@@ -39,11 +40,10 @@
 
 	</form>
 	<p><pre>
-type new table list in text box directly.
-classify table name with enter-key
+type category list in text box directly.
+classify category list with enter-key
 
-do not use "/(slash)" character in table name.
-do not use space(blank) for first and last character of table name.
+do not use space(blank) for first and last character of category name.
 	</pre></p>
 
 </body>

@@ -2,20 +2,25 @@
 
 	include '../repository.php';
 
-	$listfile = $repository.'oms1/record/initdata/menulist.txt';
-	$item = file($listfile);
+	$item = file($repository.'oms1/record/initdata/menulist.txt');
 
-	$eachcat = file($repository.'oms1/record/initdata/rawcatlist.txt');
+	$eachcat = file($repository.'oms1/record/initdata/catlist.txt');
+	$i = 1;
 	foreach ($eachcat as $value) {
-		$catarr = explode("\t", trim($value));
-		$catarray[$catarr[0]]=$catarr[1];
+		$catarray[$i]=$value;
+		$i++;
 	}
 
-	$freelist = file($repository.'oms1/record/initdata/scfreelist.txt');
-	foreach ($freelist as $value) {
-		$scfreearr = explode("\t", trim($value));
-		$scfreearray[]=$scfreearr[1];
+	$menuListArray = array();
+	$scfreelist = array();
+	foreach ($item as $rawList){
+		$arrList = explode("\t", $rawList);
+		array_push($menuListArray, $arrList);
+		if ($arrList[3] === 'scfree') {
+			array_push($scfreelist, $arrList[1]);
+		}
 	}
+
 
 	$menuno = 1;
 	foreach ($catarray as $catno => $catname) {

@@ -1,0 +1,39 @@
+pre{
+	color:2e2e2e;
+	font:sans-serif;
+}
+.grid-container{
+	display: grid;
+	grid-template-columns: 1fr 1fr
+}
+.grid-item{
+	
+}
+p{
+
+}
+textarea{
+	width:auto;
+	font-size: 1.1rem;
+	font-family:arial, "times New Roman", verdana, sans-serif; 
+}
+.btnbox{
+	margin: 20px;
+	text-align: center;
+}
+legend{
+  text-align: left;
+  background: linear-gradient(#a3e3f7, #008CBA);
+  color: white;
+  width: 150px;
+  padding-left: 10px;
+}
+
+legend:hover{
+  background: linear-gradient(#008CBA, #a3e3f7);
+  cursor: pointer;
+}
+
+fieldset{
+  margin-bottom: 5px;
+}

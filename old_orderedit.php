@@ -31,10 +31,9 @@
 
       menu  : <select name="category" id="category" onchange="changecatlist();">
         <option value="">Select Category</option>
-
-        <?php
-          include_once 'callingCategory.php';
-        ?>
+          <?php
+          echo file_get_contents($repository."oms1/record/initdata/catlist.txt");
+          ?>
       </select>
 
       <select name="item" id="item">

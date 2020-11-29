@@ -1,3 +1,5 @@
+<?php $title = $_GET['id'];?>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -24,10 +26,10 @@
             <div>
                 <h2>
                     <?php
-                    if (isset($_GET['id'])) {
-                        echo $_GET['id'];
+                    if (isset($title)) {
+                        echo $title;
                     } else {
-                        echo 'Set preferences on left taps';
+                        echo 'Set preferences';
 
                     }
                     ?>
@@ -35,18 +37,43 @@
             </div>
             <div>
                 <?php
-                    $fileText = file($_GET["id"].".txt");
-                    foreach ($fileText as $key) {
-                        echo $key.'<br>';
+                    if (isset($title)) {
+                        $fileText = file($title.'.txt');
+                        foreach ($fileText as $key) {
+                            echo $key.'<br>';
+                        }
                     }
                 ?>
             </div>
             <div class="btnbox">
-                <button class="button buttonblack" onclick="location.href='<? echo $_GET['id'] ?>.php'">
+
+
+
+                <button class="button buttonblack" onclick="location.href='<?php 
+                    if (isset($title)) {
+                        echo $title;
+                    } else {
+                        echo '../index';
+                    }
+                ?>.php'">
+
                     <?php
-                        echo 'go '.$_GET['id'];
+                        if (isset($title)) {
+                            echo 'go '.$title;
+                        } else {
+                            echo 'back Home';
+                        }
                     ?>
                 </button>
+
+                <?php
+                if ($title === 'menu_list') {
+                    $fnCategoryList = 'categoryList.php';
+                    echo '<button class="button buttonblack" onclick="location.href=\''.$fnCategoryList.'\'">';
+                    echo 'go category list';
+                }
+                ?>
+
             </div>
         </div>
         
